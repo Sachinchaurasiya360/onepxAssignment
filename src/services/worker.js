@@ -1,5 +1,5 @@
 const { Worker } = require('bullmq');
-const { REDIS_URL } = require('../config');
+const { createConnection } = require('./redis');
 const { getDb } = require('../database');
 const { logDelivery } = require('./delivery-logger');
 const { sendEmail } = require('./mailer');
@@ -35,7 +35,7 @@ function startWorker() {
       logDelivery(messageId, recipientEmail);
       console.log(`Delivered message ${messageId} to ${recipientEmail}`);
     },
-    { connection: { url: REDIS_URL } }
+    { connection: createConnection() }
   );
 
   worker.on('failed', (job, err) => {

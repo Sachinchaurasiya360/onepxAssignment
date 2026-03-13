@@ -1,9 +1,9 @@
 const { Queue } = require('bullmq');
-const { REDIS_URL } = require('../config');
+const { createConnection } = require('./redis');
 
-const connection = { url: REDIS_URL };
-
-const deliveryQueue = new Queue('message-delivery', { connection });
+const deliveryQueue = new Queue('message-delivery', {
+  connection: createConnection(),
+});
 
 async function scheduleDelivery(messageId, recipientEmail, deliverAt) {
   const delay = new Date(deliverAt).getTime() - Date.now();
