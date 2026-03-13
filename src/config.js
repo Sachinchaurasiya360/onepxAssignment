@@ -7,9 +7,6 @@ module.exports = {
   DATABASE_PATH: process.env.DATABASE_PATH || './data/timecapsule.db',
   LOG_PATH: process.env.LOG_PATH || './logs/delivery.log',
   REDIS_URL: process.env.REDIS_URL || 'redis://localhost:6379',
-  SMTP_HOST: process.env.SMTP_HOST || 'smtp.gmail.com',
-  SMTP_PORT: parseInt(process.env.SMTP_PORT || '587'),
-  SMTP_USER: process.env.SMTP_USER || '',
-  SMTP_PASS: process.env.SMTP_PASS || '',
-  SMTP_FROM: process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@timecapsule.app',
+  RESEND_API_KEY: process.env.RESEND_API_KEY || '',
+  RESEND_FROM: process.env.RESEND_FROM || 'Time Capsule <onboarding@resend.dev>',
 };

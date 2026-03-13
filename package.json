@@ -19,6 +19,7 @@
     "ioredis": "^5.10.0",
     "jsonwebtoken": "^9.0.3",
     "nodemailer": "^8.0.2",
+    "resend": "^6.9.3",
     "sqlite": "^5.1.1",
     "sqlite3": "^6.0.1"
   },
